@@ -1,0 +1,16 @@
+<h3>
+  <a ng-href="/#/expeditions/{{expedition._id}}" title="{{expedition.title}}">{{expedition.title}}</a>
+</h3>
+<p>{{body}}</p>
+<div class="meta">
+  <span class="muted">{{expedition.createdAt | date: short}}</span>
+</div>
+<span ngIf="expedition.author">
+  <a ng-href="/#/users/{{expedition.user._id}}">{{expedition.user.name || expedition.user.username}}</a>
+</span>
+<span ngIf="expedition.tags">
+  <span>Tags</span>
+  <span ng-repeat="tag in expedition.tags">
+    <i class="muted fa fa-tag"></i>&nbsp;<a ng-href="/#/tags/{{tag}}">{{tag}}</a>
+  </span>
+</span>

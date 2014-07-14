@@ -1,0 +1,12 @@
+<div class="expedition-detail">
+  <h2>{{expedition.title}}</h2>
+  <p>
+  	<strong>Author:&nbsp;</strong>
+  	<a ng-href="/#/user/expedition.user._id">
+  		{{expedition.user.name || expedition.user.username}}
+	</a>
+  </p>
+  <div class="map" ng-controller="SimpleMapController">
+  	<leaflet height="300" center="center" markers="markers"></leaflet>
+  </div>
+</div>
