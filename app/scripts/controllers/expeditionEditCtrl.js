@@ -12,7 +12,6 @@ angular.module('voyagerDesktopApp')
 
 
   	var expedition = new exp({
-  		isNew: true,
   		_id : null,
   		title : "New Expedition",
         description : null,
@@ -28,12 +27,12 @@ angular.module('voyagerDesktopApp')
   	console.log(expedition)
 
   	$scope.save = function(){
-  		if (expedition.isNew){
+  		if (!expedition._id){
 	  		expedition.$save(function(data){
 	  			console.log(data)
 	  		})
   		} else {
-  			expedition.$update(angular.extend({ id: expedition.id }, expedition),function(data){
+  			expedition.$update(angular.extend({ id: expedition._id }, expedition),function(data){
   				console.log(data)
   			})
   		}
