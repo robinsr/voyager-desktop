@@ -29,13 +29,17 @@ angular
         templateUrl: 'views/expeditionList.html',
         controller: 'listCtrl'
       })
+      .when('/expeditions/new',{
+        templateUrl: 'views/expeditionEdit.html',
+        controller: 'expeditionEditCtrl'
+      })
       .when('/expeditions/:id',{
         templateUrl: 'views/expeditionShow.html',
         controller: 'expeditionCtrl'
       })
       .when('/expeditions/:id/edit',{
         templateUrl: 'views/expeditionEdit.html',
-        controller: 'expeditionCtrl'
+        controller: 'expeditionEditCtrl'
       })
       .otherwise({
         redirectTo: '/'
