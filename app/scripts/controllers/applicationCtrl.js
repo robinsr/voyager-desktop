@@ -23,8 +23,19 @@ angular.module('voyagerDesktopApp')
   	if (!userAuthenticated && next.isLogin) {
   		/* You can save the user's location to take him back to the same page after he has logged-in */
   		$rootScope.savedLocation = $location.url();
-
-  		$location.path('/');
+  		$rootScope.$broadcast("errorMessage",{
+  			title: "Wait a minute!",
+  			text: "You need to be logged in to do that"
+  		})
+  		$location.path('/login');
   	}
+  });
+
+  $scope.isActive = '/';
+
+  // Changes $scope.isActive, updates UI active tab
+  $rootScope.$on('$routeChangeSuccess', function () {
+  	console.log($location.path())
+  	$scope.isActive = $location.path();
   });
 })

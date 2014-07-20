@@ -22,6 +22,10 @@
  .config(function ($routeProvider) {
   $routeProvider
   .when('/', {
+    templateUrl: 'views/expeditionList.html',
+    controller: 'listCtrl'
+  })
+  .when('/login', {
     templateUrl: 'views/login.html',
     controller: 'loginCtrl'
   })
