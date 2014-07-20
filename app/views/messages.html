@@ -1,0 +1,17 @@
+<div ng-show="errorMessage">
+  <div class="alert alert-danger" role="alert">
+    <p><strong>{{errorMessage.title}}</strong>&nbsp;{{errorMessage.text}}</p>
+  </div>
+</div>
+
+<div ng-show="warningMessage">
+  <div class="alert alert-warning" role="alert">
+    <p><strong>{{warningMessage.title}}</strong>&nbsp;{{warningMessage.text}}</p>
+  </div>
+</div>
+
+<div ng-show="successMessage">
+  <div class="alert alert-success" role="alert">
+    <p><strong>{{successMessage.title}}</strong>&nbsp;{{successMessage.text}}</p>
+  </div>
+</div>
