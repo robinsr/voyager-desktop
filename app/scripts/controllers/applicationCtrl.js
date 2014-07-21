@@ -1,7 +1,7 @@
 'user-strict'
 
 angular.module('voyagerDesktopApp')
-.controller('ApplicationCtrl', function ($scope, $rootScope, $location, USER_ROLES, AuthService) {
+.controller('ApplicationCtrl', function ($scope, $rootScope, $location, USER_ROLES, ERROR_MESSAGES, AuthService, MessageService) {
   $scope.currentUser = null;
   $scope.userRoles = USER_ROLES;
   $scope.isAuthorized = AuthService.isAuthorized;
@@ -13,6 +13,7 @@ angular.module('voyagerDesktopApp')
   $rootScope.$on('auth-login-success', function(evt, cur, prev) {
   	var returnTo = $rootScope.savedLocation || "/expeditions/";
   	$location.path(returnTo)
+    MessageService.removeMessage(ERROR_MESSAGES.login)
   });
 
 
@@ -23,10 +24,8 @@ angular.module('voyagerDesktopApp')
   	if (!userAuthenticated && next.isLogin) {
   		/* You can save the user's location to take him back to the same page after he has logged-in */
   		$rootScope.savedLocation = $location.url();
-  		$rootScope.$broadcast("errorMessage",{
-  			title: "Wait a minute!",
-  			text: "You need to be logged in to do that"
-  		})
+
+  		MessageService.addMessage(ERROR_MESSAGES.login)
   		$location.path('/login');
   	}
   });

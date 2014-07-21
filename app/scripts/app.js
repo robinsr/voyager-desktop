@@ -69,3 +69,11 @@
   guest: 'guest'
 })
  .constant("API_ENDPOINT", "http://localhost:8128")
+ .constant('ERROR_MESSAGES', {
+  login: {
+    severity: "danger", title: "Wait a minute!", text: "You need to be logged in to do that"
+  },
+  usernameOrPassword : {
+    severity: "danger", title: "Oh Snap!", text: "Incorrect username or password" 
+  }
+ })
