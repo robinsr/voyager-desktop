@@ -74,6 +74,7 @@
     severity: "danger", title: "Wait a minute!", text: "You need to be logged in to do that"
   },
   usernameOrPassword : {
-    severity: "danger", title: "Oh Snap!", text: "Incorrect username or password" 
+    severity: "danger", title: "Oh Snap!", text: "Incorrect username or password"
   }
  })
+ .constant('MAPBOX','http://{s}.tiles.mapbox.com/v3/robinsr.iomn5e9d/{z}/{x}/{y}.png')

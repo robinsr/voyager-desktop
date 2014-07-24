@@ -1,9 +1,12 @@
 'user-strict'
 
 angular.module('voyagerDesktopApp').
-controller("SimpleMapController", ['$scope','$q', function($scope,$q) {
+controller("SimpleMapController", ['$scope','$q', 'MAPBOX', function($scope,$q,MAPBOX) {
 	$scope.center = {};
 	$scope.markers = {};
+	$scope.defaults = {
+		tileLayer: MAPBOX,
+	}
 	var mapData = {
 		defaults: {
 			scrollWheelZoom: false
