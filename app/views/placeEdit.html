@@ -1,0 +1,57 @@
+<div class="panel place-panel" ng-repeat="place in expedition.places">
+  Select place by:
+  <div class="row">
+    <div class="col-md-12">
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-primary active">
+          <input type="radio" name="selectBy" value="addr" ng-model="place.selectBy"> Business Name or Address
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" name="selectBy" value="coords" ng-model="place.selectBy"> Coordinates
+        </label>
+      </div>
+    </div>
+  </div>
+  <div ng-if="place.selectBy == 'addr'">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="">
+            Business Name
+            <div class="input-group">
+              <input type="text" class="form-control" ng-model="place.name">
+              <span class="input-group-addon" ng-click="$parent.searchForBusiness()">Search</span>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="">
+            Address <input type="text" class="form-control" ng-place="place.address">
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div ng-if="place.selectBy == 'coords'">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="">
+            Latitude <input type="text" class="form-control" ng-model="place.latitude">
+          </label>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="">
+            Longitude <input type="text" class="form-control" ng-model="place.longitude">
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,8 +8,8 @@
  * Controller of the voyagerDesktopApp
  */
 angular.module('voyagerDesktopApp')
-  .controller('expeditionEditCtrl', ['$scope','$routeParams','ExpeditionFactory','MessageService', 
-    function ($scope, $routeParams, exp, MessageService) {
+  .controller('expeditionEditCtrl', ['$scope','$routeParams','ExpeditionFactory','PlaceService','MessageService',
+    function ($scope, $routeParams, exp, Place, MessageService) {
 
 
   	var expedition = new exp({
@@ -96,5 +96,14 @@ angular.module('voyagerDesktopApp')
     }
 
   	$scope.expedition = expedition;
+
+    var i = 0;
+
+    $scope.addNewPlace = function(){
+      var newPlace = new Place();
+      newPlace.longitude = "Im number " + i;
+      i++
+      $scope.expedition.places.push(newPlace);
+    }
 
   }]);
